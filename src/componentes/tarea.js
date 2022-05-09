@@ -3,7 +3,7 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
 import {faCheckSquare, faSquare, faEdit, faTimes} from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
 
-const Tarea = ({tarea, toggleCompletada}) => {
+const Tarea = ({tarea, toggleCompletada, editarTarea}) => {
 
     const [editandoTarea, cambiarEditandoTarea] = useState(false);
 
@@ -11,6 +11,7 @@ const Tarea = ({tarea, toggleCompletada}) => {
 
     const handleSubmit = (e) => {
         e.preventDefault();
+        editarTarea(tarea.id, nuevaTarea);
         cambiarEditandoTarea(false);
     }
 

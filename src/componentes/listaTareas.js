@@ -13,13 +13,23 @@ const ListaTareas = ({tareas, cambiarTareas}) => {
         }));
     }
 
+    const editarTarea = (id, nuevoTexto) => {
+        cambiarTareas(tareas.map((tarea) => {
+            if(tarea.id === id) {
+                return {...tarea, texto: nuevoTexto}
+            }
+            return tarea;
+        }));
+    }
+
     return ( 
         <ul className='lista-tareas'>
             {tareas.length > 0 ? tareas.map((tarea) => {
                 return <Tarea 
                             key={tarea.id}
                             tarea={tarea}
-                            toggleCompletada={toggleCompletada}>
+                            toggleCompletada={toggleCompletada}
+                            editarTarea={editarTarea}>
                         </Tarea>
             })
             : <div className='lista-tareas__mensaje'>No hay tareas agregadas.</div>
