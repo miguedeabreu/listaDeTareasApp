@@ -23,7 +23,8 @@ const FormularioTareas = ({tareas, cambiarTareas}) => {
                     completado: false
                 }
             ]
-        )
+        );
+        cambiarInputTarea('');
     }
 
     return ( 
