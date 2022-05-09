@@ -15,7 +15,7 @@ const App = () => {
       {
         id: 2,
         texto: 'Grabar tutorial',
-        completado: false
+        completado: true
       }
     ]
   )
@@ -26,7 +26,7 @@ const App = () => {
    <div className='contenedor'>
      <Header></Header>
      <FormularioTareas tareas={tareas} cambiarTareas={cambiarTareas}></FormularioTareas>
-     <ListaTareas tareas={tareas}></ListaTareas>
+     <ListaTareas tareas={tareas} cambiarTareas={cambiarTareas} ></ListaTareas>
     </div>
   );
 }

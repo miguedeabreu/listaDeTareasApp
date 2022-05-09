@@ -1,9 +1,9 @@
 import React, {useState} from 'react';
 import {FontAwesomeIcon} from '@fortawesome/react-fontawesome';
-import {faCheckSquare, faEdit, faTimes} from '@fortawesome/free-solid-svg-icons';
+import {faCheckSquare, faSquare, faEdit, faTimes} from '@fortawesome/free-solid-svg-icons';
 import '../App.css';
 
-const Tarea = ({tarea}) => {
+const Tarea = ({tarea, toggleCompletada}) => {
 
     const [editandoTarea, cambiarEditandoTarea] = useState(false);
 
@@ -17,8 +17,9 @@ const Tarea = ({tarea}) => {
     return ( 
         <li className='lista-tareas__tarea'>
             <FontAwesomeIcon 
-                icon={faCheckSquare}
-                className='lista-tareas__icono lista-tareas__icono-check'>
+                icon={tarea.completado ? faCheckSquare : faSquare}
+                className='lista-tareas__icono lista-tareas__icono-check'
+                onClick={() => toggleCompletada(tarea.id)} >
             </FontAwesomeIcon>
             <div className='lista-tareas__texto'>
                 {editandoTarea ? 
